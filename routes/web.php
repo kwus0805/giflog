@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('address')->middleware(['auth'])->namespace('App\Http\Controllers')->group(function() {
-  Route::get('','AddressController@index')->name('addr.index');
+  Route::get('/','AddressController@index')->name('addr.index');
   Route::get('create','AddressController@add')->name('addr.add');
   Route::get('edit','AddressController@edit')->name('addr.edit');
   Route::get('delete','AddressController@delete')->name('addr.del');
@@ -24,12 +24,12 @@ Route::prefix('address')->middleware(['auth'])->namespace('App\Http\Controllers'
 });
 
 Route::prefix('dashboard')->middleware(['auth'])->namespace('App\Http\Controllers')->group(function() {
-  Route::get('','DashboardController@index')->name('dash.index');
+  Route::get('/','DashboardController@index')->name('dash.index');
 
 });
 
 Route::prefix('event')->middleware(['auth'])->namespace('App\Http\Controllers')->group(function() {
-  Route::get('','EventController@index')->name('eve.index');
+  Route::get('/','EventController@index')->name('eve.index');
   Route::get('create','EventController@add')->name('eve.add');
   Route::get('edit','EventController@edit')->name('eve.edit');
   Route::get('delete','EventController@delete')->name('eve.del');
@@ -40,7 +40,7 @@ Route::prefix('event')->middleware(['auth'])->namespace('App\Http\Controllers')-
 });
 
 Route::prefix('gift')->middleware(['auth'])->namespace('App\Http\Controllers')->group(function() {
-  Route::get('','GiftController@index')->name('gift.index');
+  Route::get('/','GiftController@index')->name('gift.index');
   Route::get('create','GiftController@add')->name('gift.add');
   Route::get('edit','GiftController@edit')->name('gift.edit');
   Route::get('delete','GiftController@delete')->name('gift.del');
@@ -51,7 +51,7 @@ Route::prefix('gift')->middleware(['auth'])->namespace('App\Http\Controllers')->
 });
 
 Route::prefix('group')->middleware(['auth'])->namespace('App\Http\Controllers')->group(function() {
-  Route::get('','GroupController@index')->name('gr.index');
+  Route::get('/','GroupController@index')->name('gr.index');
   Route::get('create','GroupController@add')->name('gr.add');
   Route::get('edit','GroupController@edit')->name('gr.edit');
   Route::get('delete','GroupControllerssController@delete')->name('gr.del');
@@ -62,7 +62,7 @@ Route::prefix('group')->middleware(['auth'])->namespace('App\Http\Controllers')-
 });
 
 Route::prefix('present')->middleware(['auth'])->namespace('App\Http\Controllers')->group(function() {
-  Route::get('','PresentController@index')->name('pres.index');
+  Route::get('/','PresentController@index')->name('pres.index');
   Route::get('create','PresentController@add')->name('pres.add');
   Route::get('edit','PresentController@edit')->name('pres.edit');
   Route::get('delete','PresentController@delete')->name('pres.del');
@@ -71,3 +71,7 @@ Route::prefix('present')->middleware(['auth'])->namespace('App\Http\Controllers'
   Route::post('edit','PresentController@update')->name('pres.update');
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
